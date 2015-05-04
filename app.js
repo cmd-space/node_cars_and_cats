@@ -10,7 +10,7 @@ var server = http.createServer(function (request, response){
 //    console.log('hello');
 //    console.log('REQUEST OBJECT', request);
     if(request.url === '/cars') {
-        fs.readFile('cars.html', 'utf8', function (errors, contents){
+        fs.readFile('./views/cars.html', 'utf8', function (errors, contents){
             response.writeHead(200, {'Content-Type': 'text/html'});  // send data about response
             response.write(contents);  //  send response body
             response.end(); // finished!
@@ -24,7 +24,7 @@ var server = http.createServer(function (request, response){
         });
     }
     else if(request.url === '/cats') {
-        fs.readFile('ninjas.html', 'utf8', function (errors, contents){
+        fs.readFile('./views/cats.html', 'utf8', function (errors, contents){
             response.writeHead(200, {'Content-Type': 'text/html'});  // send data about response
             response.write(contents);  //  send response body
             response.end(); // finished!
@@ -51,8 +51,29 @@ var server = http.createServer(function (request, response){
             response.end(); // finished!
         });
     }
+    else if(request.url === '/cat1.jpg') {
+        fs.readFile('./images/cat1.jpg', function (errors, contents){
+            response.writeHead(200, {'Content-Type': 'image/jpg'});  // send data about response
+            response.write(contents);  //  send response body
+            response.end(); // finished!
+        });
+    }
+    else if(request.url === '/cat2.jpg') {
+        fs.readFile('./images/cat2.jpg', function (errors, contents){
+            response.writeHead(200, {'Content-Type': 'image/jpg'});  // send data about response
+            response.write(contents);  //  send response body
+            response.end(); // finished!
+        });
+    }
+    else if(request.url === '/cat3.jpeg') {
+        fs.readFile('./images/cat3.jpeg', function (errors, contents){
+            response.writeHead(200, {'Content-Type': 'image/jpeg'});  // send data about response
+            response.write(contents);  //  send response body
+            response.end(); // finished!
+        });
+    }
     else if(request.url === '/cars/new') {
-        fs.readFile('dojos.html', 'utf8', function (errors, contents){
+        fs.readFile('./views/new.html', 'utf8', function (errors, contents){
             response.writeHead(200, {'Content-Type': 'text/html'});  // send data about response
             response.write(contents);  //  send response body
             response.end(); // finished!
