@@ -37,6 +37,20 @@ var server = http.createServer(function (request, response){
             response.end(); // finished!
         });
     }
+    else if(request.url === '/c2.jpeg') {
+        fs.readFile('./images/c2.jpeg', function (errors, contents){
+            response.writeHead(200, {'Content-Type': 'image/jpeg'});  // send data about response
+            response.write(contents);  //  send response body
+            response.end(); // finished!
+        });
+    }
+    else if(request.url === '/c3.jpeg') {
+        fs.readFile('./images/c3.jpeg', function (errors, contents){
+            response.writeHead(200, {'Content-Type': 'image/jpeg'});  // send data about response
+            response.write(contents);  //  send response body
+            response.end(); // finished!
+        });
+    }
     else if(request.url === '/cars/new') {
         fs.readFile('dojos.html', 'utf8', function (errors, contents){
             response.writeHead(200, {'Content-Type': 'text/html'});  // send data about response
@@ -53,4 +67,4 @@ var server = http.createServer(function (request, response){
 // tell your server which port to run on
 server.listen(7077);
 // print to terminal window
-console.log("Running in localhost at port 6789");
+console.log("Running in localhost at port 7077");
